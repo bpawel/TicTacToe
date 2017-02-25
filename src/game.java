@@ -110,18 +110,13 @@ public class game {
 		return false;
 	}
 	
-	
-	
-	public static void main(String[] args) {
-		
-		
-		game TicTacToe = new game();
+	public void write(){
 		int a,b;
-	
+		
 		print = new Scanner(System.in);
 		System.out.println("Welcome to the game 'Tic tac toe'.");
-		TicTacToe.printMark();
-		TicTacToe.boardGame();
+		printMark();
+		boardGame();
 
 		
 		while(true){
@@ -129,7 +124,7 @@ public class game {
 			System.out.println("Firts player starts out as 'o'. START!");
 			System.out.println("Choose row and column[x][y]");
 			
-			TicTacToe.player();
+			player();
 			System.out.print("Choose row: ");
 			a = print.nextInt();
 			
@@ -137,20 +132,20 @@ public class game {
 			b = print.nextInt();
 			
 			
-			while(TicTacToe.mark(a,b)){
-				TicTacToe.boardGame();
-				if(TicTacToe.check()){
+			while(mark(a,b)){
+				boardGame();
+				if(check()){
 					System.out.println("YOU WON!");
 					System.exit(0);
 				}
-				else if(TicTacToe.boardFull()){
+				else if(boardFull()){
 					System.out.println("DRAW!");
 					System.exit(0);
 				}
 				
 				
 				System.out.println();
-				TicTacToe.player();
+				player();
 				System.out.print("Choose row: ");
 				a = print.nextInt();
 				System.out.print("Choose column: ");
@@ -160,6 +155,16 @@ public class game {
 			}
 			
 		}
+	}
+	
+	public static void main(String[] args) {
+		
+		
+		game TicTacToe = new game();
+		
+		TicTacToe.write();
+		
+		
 		
 		
 	}
